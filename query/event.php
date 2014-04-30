@@ -7,11 +7,9 @@ $result = $response::mySqlQuery($sql);
 $json = array();
 header('Content-type: application/json');
 $data;
-$i = 0;
 if(mysql_num_rows($result)){
     while($row=mysql_fetch_array($result)){
         $object = new event($row);
-        echo $row[0];
         $data = $object::convert();
         echo $data->dateModified;
         $json['event']=($data);
