@@ -5,7 +5,7 @@
  * Date: 2014/04/30
  * Time: 20:27
  */
-require($_SERVER['DOCUMENT_ROOT'].'/models/event.php');
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/event.php');
 class event {
     private static $instance;
     private static $model;

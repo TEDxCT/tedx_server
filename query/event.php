@@ -1,6 +1,6 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'].'/database/MySqlResponse.php');
-require($_SERVER['DOCUMENT_ROOT'].'/converter/event.php');
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/database/MySqlResponse.php');
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/converter/event.php');
 $sql = "select * from event";
 $response = MySqlResponse::getInstance();
 $result = $response::mySqlQuery($sql);
