@@ -14,17 +14,18 @@ class event {
     public function __construct($data)
     {
         self::$data = $data;
+        echo $data['LocationDescriptionHTML'];
     }
 
     public static function convert()
     {
         $model = new \models\event();
-        $model->id = self::$data['id'];
+        $model->id = self::$data['Id'];
         $model->dateCreated = self::$data['DateCreated'];
         $model->dateModified = self::$data['DateModified'];
         $model->startDate = self::$data['StartDate'];
         $model->endDate = self::$data['EndDate'];
-        $model->name = self::$data['name'];
+        $model->name = self::$data['Name'];
         $model->imageURL = self::$data['ImageURL'];
         $model->websiteURL = self::$data['WebsiteURL'];
         $model->descriptionHTML = self::$data['DescriptionHTML'];
