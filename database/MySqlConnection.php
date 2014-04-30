@@ -51,9 +51,9 @@ class MySqlConnection {
     }
     private static function setupMySqlConnection()
     {
-        static $host="localhost";
+        static $host="95.85.26.105";
         static $username="root";
-        static $password="root";
+        static $password="tedxcpt";
         self::$connection = mysql_connect("$host", "$username", "$password") or die("Connection error");
     }
 

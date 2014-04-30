@@ -6,7 +6,7 @@
  * Time: 19:17
  */
 
-require('database/MySqlConnection.php');
+require('MySqlConnection.php');
 class MySqlResponse {
     private static $con;
     private static $db_name = "tedxserver";
