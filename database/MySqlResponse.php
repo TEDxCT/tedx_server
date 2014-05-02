@@ -28,13 +28,17 @@ class MySqlResponse {
 
     protected static function setDatabaseName()
     {
-        mysql_select_db(self::$db_name)or die("cannot select DB");;
+        mysql_select_db(self::$db_name);
+        if (mysql_errno()) {
+            $error = "MySQL error ".mysql_errno().": ".mysql_error();
+            echo $error;
+            exit;
+        }
     }
-
-    public static function mySqlQuery($query)
+        public static function mySqlQuery($query)
     {
         $response = mysql_query($query);
-        self::$con.mysql_close();
+        mysql_close(self::$db_name);
         return $response;
 
     }

@@ -5,10 +5,8 @@
  * Date: 2014/04/30
  * Time: 20:27
  */
-require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/event.php');
-class event {
-    private static $instance;
-    private static $model;
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/talks.php');
+class talks {
     private static $data;
 
     public function __construct($data)
@@ -18,19 +16,18 @@ class event {
 
     public static function convert()
     {
-        $model = new \models\event();
+        $model = new \models\talks();
         $model->id = self::$data['Id'];
         $model->dateCreated = self::$data['DateCreated'];
         $model->dateModified = self::$data['DateModified'];
-        $model->startDate = self::$data['StartDate'];
-        $model->endDate = self::$data['EndDate'];
+        $model->isActive = self::$data['IsActive'];
         $model->name = self::$data['Name'];
         $model->imageURL = self::$data['ImageURL'];
-        $model->websiteURL = self::$data['WebsiteURL'];
+        $model->videoURL = self::$data['VideoURL'];
         $model->descriptionHTML = self::$data['DescriptionHTML'];
-        $model->latitude = self::$data['Latitude'];
-        $model->longitude = self::$data['Longitude'];
-        $model->locationDescriptionHTML = self::$data['LocationDescriptionHTML'];
+        $model->orderInSession = self::$data['OrderInSession'];
+        $model->sessionId = self::$data['SessionId'];
+        $model->speakerId = self::$data['SpeakerId'];
         return $model;
     }
 }
