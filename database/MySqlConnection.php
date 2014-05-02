@@ -59,7 +59,6 @@ class MySqlConnection {
         if (mysql_errno()) {
             $error = "MySQL error ".mysql_errno().": ".mysql_error();
             echo $error;
-            exit;
         }
     }
 

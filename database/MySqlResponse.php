@@ -38,8 +38,17 @@ class MySqlResponse {
         public static function mySqlQuery($query)
     {
         $response = mysql_query($query);
-        mysql_close(self::$db_name);
+        if (mysql_errno()) {
+            $error = "MySQL error ".mysql_errno().": ".mysql_error();
+            echo $error;
+            exit;
+        }
         return $response;
 
     }
+    public static function closeMySqlConnection()
+    {
+        mysql_close();
+    }
+
 } 
