@@ -6,6 +6,7 @@
  * Time: 20:27
  */
 require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/talks.php');
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/converter/speakers.php');
 class talks {
     private static $data;
 
@@ -28,6 +29,22 @@ class talks {
         $model->orderInSession = self::$data['OrderInSession'];
         $model->sessionId = self::$data['SessionId'];
         $model->speakerId = self::$data['SpeakerId'];
+        // Slightly inefficient way to re-query the DB for each sub set
+        $sql = "Select * from speaker where Id = ".self::$data['SpeakerId'];
+        $response = MySqlResponse::getInstance();
+        $result = $response::mySqlQuery($sql);
+        echo mysql_num_rows($result);
+        if(mysql_num_rows($result)){
+            while($row=mysql_fetch_array($result)){
+                $object = new speakers($row);
+                $speakersData = $object::convert();
+                $model->speaker=($speakersData);
+            }
+        }
+        else
+        {
+            $model->speaker = null;
+        }
         return $model;
     }
 }

@@ -6,6 +6,7 @@
  * Time: 20:27
  */
 require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/event.php');
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/converter/sessions.php');
 class event {
     private static $instance;
     private static $model;
@@ -31,6 +32,23 @@ class event {
         $model->latitude = self::$data['Latitude'];
         $model->longitude = self::$data['Longitude'];
         $model->locationDescriptionHTML = self::$data['LocationDescriptionHTML'];
+        // Slightly inefficient way to re-query the DB for each sub set
+        $sql = "Select * from session where EventId = ".self::$data['Id'];
+        $response = MySqlResponse::getInstance();
+        $result = $response::mySqlQuery($sql);
+        echo mysql_num_rows($result);
+        if(mysql_num_rows($result)){
+            $model->sessions = array();
+            while($row=mysql_fetch_array($result)){
+                $object = new sessions($row);
+                $sessionsData = $object::convert();
+                $model->sessions[]=($sessionsData);
+            }
+        }
+        else
+        {
+            $model->sessions = null;
+        }
         return $model;
     }
 }

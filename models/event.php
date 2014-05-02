@@ -22,4 +22,5 @@ class event {
     public $latitude;
     public $longitude;
     public $locationDescriptionHTML;
+    public $sessions;
 } 

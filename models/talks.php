@@ -21,4 +21,5 @@ class talks {
     public $orderInSession;
     public $sessionId;
     public $speakerId;
+    public $speaker;
 } 

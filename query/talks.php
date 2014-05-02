@@ -22,5 +22,6 @@ if(mysql_num_rows($result)){
     }
 }
 echo json_encode($json);
+$response::closeMySqlConnection();
 // please refer to our PHP JSON encode function tutorial for learning json_encode function in detail
 ?>
