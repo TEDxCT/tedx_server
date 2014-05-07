@@ -7,9 +7,9 @@
  */
 
 require('MySqlConnection.php');
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/response/error.php');
 class MySqlResponse {
     private static $con;
-    private static $db_name = "tedxserver";
     private static $instance;
     protected function __construct()
     {
@@ -28,20 +28,19 @@ class MySqlResponse {
 
     protected static function setDatabaseName()
     {
-        mysql_select_db(self::$db_name);
+        $SettingsData = parse_ini_file("settings.ini");
+        mysql_select_db($SettingsData["dbname"]);
         if (mysql_errno()) {
-            $error = "MySQL error ".mysql_errno().": ".mysql_error();
-            echo $error;
-            exit;
+            $developerError = "MySQL error ".mysql_errno().": ".mysql_error().$SettingsData["dbname"];
+            JsonErrorResult($developerError);
         }
     }
         public static function mySqlQuery($query)
     {
         $response = mysql_query($query);
         if (mysql_errno()) {
-            $error = "MySQL error ".mysql_errno().": ".mysql_error();
-            echo $error;
-            exit;
+            $developerError = "MySQL error ".mysql_errno().": ".mysql_error();
+            JsonErrorResult($developerError);
         }
         return $response;
 

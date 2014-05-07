@@ -51,16 +51,12 @@ class MySqlConnection {
     }
     private static function setupMySqlConnection()
     {
-        static $host="95.85.26.105";
-        static $username="root";
-        static $password="tedxcpt";
+        $SettingsData = parse_ini_file("settings.ini");
+        $host = $SettingsData['host'];
+        $username = $SettingsData['username'];
+        $password = $SettingsData['password'];
         self::$connection = mysql_connect("$host", "$username", "$password");
-        if (mysql_errno()) {
-            $error = "MySQL error ".mysql_errno().": ".mysql_error();
-            echo $error;
-        }
     }
-
 }
 
 ?>
