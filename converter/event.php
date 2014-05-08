@@ -36,7 +36,6 @@ class event {
         $sql = "Select * from session where EventId = ".self::$data['Id'];
         $response = MySqlResponse::getInstance();
         $result = $response::mySqlQuery($sql);
-        echo mysql_num_rows($result);
         if(mysql_num_rows($result)){
             $model->sessions = array();
             while($row=mysql_fetch_array($result)){

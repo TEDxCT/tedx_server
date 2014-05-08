@@ -30,7 +30,6 @@ class sessions {
         $sql = "Select * from talk where SessionId = ".self::$data['Id'];
         $response = MySqlResponse::getInstance();
         $result = $response::mySqlQuery($sql);
-        echo mysql_num_rows($result);
         if(mysql_num_rows($result)){
             $model->talks = array();
             while($row=mysql_fetch_array($result)){

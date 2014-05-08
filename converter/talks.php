@@ -33,7 +33,6 @@ class talks {
         $sql = "Select * from speaker where Id = ".self::$data['SpeakerId'];
         $response = MySqlResponse::getInstance();
         $result = $response::mySqlQuery($sql);
-        echo mysql_num_rows($result);
         if(mysql_num_rows($result)){
             while($row=mysql_fetch_array($result)){
                 $object = new speakers($row);
