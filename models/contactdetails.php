@@ -9,14 +9,10 @@
 namespace models;
 
 
-class speakers {
+class contactDetails {
     public $id;
     public $dateCreated;
     public $dateModified;
-    public $isActive;
-    public $fullName;
-    public $imageURL;
-    public $descriptionHTML;
-    public $funkyTitle;
-    public $contactDetails;
+    public $name;
+    public $value;
 } 
