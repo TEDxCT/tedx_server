@@ -42,7 +42,6 @@ class MySqlResponse {
             $developerError = "MySQL error ".mysql_errno().": ".mysql_error();
             JsonErrorResult($developerError);
         }
-        echo $response;
         return $response;
 
     }
