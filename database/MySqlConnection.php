@@ -42,8 +42,8 @@ class MySqlConnection {
         if(!self::$instance)
         {
             self::$instance = new self();
+            self::setupMySqlConnection();
         }
-        self::setupMySqlConnection();
         return self::$instance;
     }
     public static function getConnection(){

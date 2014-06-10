@@ -8,8 +8,6 @@
 require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/event.php');
 require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/converter/sessions.php');
 class event {
-    private static $instance;
-    private static $model;
     private static $data;
 
     public function __construct($data)
