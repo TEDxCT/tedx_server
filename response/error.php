@@ -9,7 +9,7 @@ function JsonErrorResult($developerMessage)
 {
     $userMessage = "Unable to correctly collect data from server";
     header('Content-type: application/json');
-    http_response_code(408);
+//    http_response_code(408);
     $json['response']["result"]="error";
     $json['response']["developerMessage"]=$developerMessage;
     $json['response']["userMessage"]=$userMessage;

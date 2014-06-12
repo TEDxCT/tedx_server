@@ -5,7 +5,7 @@
  * Date: 2014/04/30
  * Time: 20:27
  */
-require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/speakers.php');
+require($_SERVER['DOCUMENT_ROOT'].'/tedx_server/models/sponsors.php');
 class sponsors{
     private static $data;
 
@@ -16,15 +16,15 @@ class sponsors{
 
     public static function convert()
     {
-        $model = new \models\speakers();
+        $model = new \models\sponsors();
         $model->id = self::$data['Id'];
         $model->dateCreated = self::$data['DateCreated'];
         $model->dateModified = self::$data['DateModified'];
         $model->isActive = self::$data['IsActive'];
-        $model->fullName = self::$data['FullName'];
+        $model->name = self::$data['Name'];
         $model->imageURL = self::$data['ImageURL'];
+        $model->websiteURL = self::$data['WebsiteURL'];
         $model->descriptionHTML = self::$data['DescriptionHTML'];
-        $model->funkyTitle = self::$data['FunkyTitle'];
         return $model;
     }
 }
