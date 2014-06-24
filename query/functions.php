@@ -11,18 +11,18 @@ function dateChecker($data)
 }
 function appendQueryStrings($sql)
 {
-//    if($_GET!=null)
+//    if($_REQUEST!=null)
 //    {
 //        $sql .= " where ";
 //    }
-//    foreach($_GET as $queryVar=>$value)
+//    foreach($_REQUEST as $queryVar=>$value)
 //    {
 //        if($queryVar == "Id")
 //        {
 //            $sql .= $queryVar." = \"".$value."\"";
 //        }
 //    }
-    $sql .= " ".$_GET['additionalquery'];
+    $sql .= " ".$_REQUEST['additionalquery'];
     return $sql;
 }
 ?>

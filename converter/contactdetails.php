@@ -20,8 +20,8 @@ class contactdetails {
         $model->id = self::$data['Id'];
         $model->dateCreated = self::$data['DateCreated'];
         $model->dateModified = self::$data['DateModified'];
-        $model->name = self::$data['name'];
-        $model->value = self::$data['value'];
+        $model->name = self::$data['Name'];
+        $model->value = self::$data['Value'];
         return $model;
     }
 }
