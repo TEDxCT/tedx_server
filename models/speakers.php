@@ -18,5 +18,4 @@ class speakers {
     public $imageURL;
     public $descriptionHTML;
     public $funkyTitle;
-    public $contactDetails;
 } 
