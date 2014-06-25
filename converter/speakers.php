@@ -39,10 +39,6 @@ class speakers {
                 $model->contactDetails[]=($contactDetailsData);
             }
         }
-        else
-        {
-            $model->contactDetails = null;
-        }
         return $model;
     }
 }
