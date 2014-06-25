@@ -31,6 +31,8 @@ class speakers {
         $sql = "select u.* from url u inner join linkspeakerurl lsu on u.id = lsu.urlid where speakerid = ".self::$data['Id'];
         $response = MySqlResponse::getInstance();
         $result = $response::mySqlQuery($sql);
+        echo mysql_num_rows($result);
+        exit;
         if(mysql_num_rows($result) != 0){
             $model->contactDetails = array();
             while($row=mysql_fetch_array($result)){
