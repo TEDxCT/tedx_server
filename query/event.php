@@ -11,7 +11,7 @@ function CreateJson()
     $json = array();
     header('Content-type: application/json');
     $data = null;
-    if(mysql_num_rows($result)){
+    if(mysql_num_rows($result)>0){
         while($row=mysql_fetch_array($result)){
             if(dateChecker($row['EndDate'])){
                 $object = new event($row);
@@ -20,6 +20,7 @@ function CreateJson()
             }
         }
     }
+    echo $sql. " size ". mysql_num_rows($result);
     $response::closeMySqlConnection();
     return json_encode($json);
 }
