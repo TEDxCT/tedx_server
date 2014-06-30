@@ -19,11 +19,11 @@ class sessions {
     {
         $model = new \models\sessions();
         $model->id = self::$data['Id'];
-        $model->dateCreated = self::$data['DateCreated'];
-        $model->dateModified = self::$data['DateModified'];
+        $model->dateCreated = strtotime(self::$data['DateCreated']);
+        $model->dateModified = strtotime(self::$data['DateModified']);
         $model->isActive = self::$data['IsActive'];
-        $model->startTime = self::$data['StartTime'];
-        $model->endTime = self::$data['EndTime'];
+        $model->startTime = strtotime(self::$data['StartTime']);
+        $model->endTime = strtotime(self::$data['EndTime']);
         $model->name = self::$data['Name'];
         $model->eventId = self::$data['EventId'];
         // Slightly inefficient way to re-query the DB for each sub set

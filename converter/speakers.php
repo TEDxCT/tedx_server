@@ -20,8 +20,8 @@ class speakers {
     {
         $model = new \models\speakers();
         $model->id = self::$data['Id'];
-        $model->dateCreated = self::$data['DateCreated'];
-        $model->dateModified = self::$data['DateModified'];
+        $model->dateCreated = strtotime(self::$data['DateCreated']);
+        $model->dateModified = strtotime(self::$data['DateModified']);
         $model->isActive = self::$data['IsActive'];
         $model->fullName = self::$data['FullName'];
         $model->imageURL = self::$data['ImageURL'];
