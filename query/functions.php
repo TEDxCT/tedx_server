@@ -22,7 +22,7 @@ function appendQueryStrings($sql)
 //            $sql .= $queryVar." = \"".$value."\"";
 //        }
 //    }
-    $sql .= " ".$_REQUEST['additionalquery'];
+//    $sql .= " ".$_REQUEST['additionalquery'];
     return $sql;
 }
 ?>
