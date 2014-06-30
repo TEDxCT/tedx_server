@@ -21,7 +21,7 @@ class event {
         $model->id = self::$data['Id'];
         $model->dateCreated = self::$data['DateCreated'];
         $model->dateModified = self::$data['DateModified'];
-        $model->startDate = self::$data['StartDate'];
+        $model->startDate = strtotime(self::$data['StartDate']);
         $model->endDate = self::$data['EndDate'];
         $model->name = self::$data['Name'];
         $model->imageURL = self::$data['ImageURL'];
