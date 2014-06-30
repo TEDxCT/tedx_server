@@ -20,7 +20,6 @@ function CreateJson()
             }
         }
     }
-    echo $sql. " size ". mysql_num_rows($result);
     $response::closeMySqlConnection();
     return json_encode($json);
 }
