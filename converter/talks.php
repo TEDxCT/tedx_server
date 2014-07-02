@@ -19,8 +19,8 @@ class talks {
     {
         $model = new \models\talks();
         $model->id = self::$data['Id'];
-        $model->dateCreated = self::$data['DateCreated'];
-        $model->dateModified = self::$data['DateModified'];
+        $model->dateCreated = strtotime(self::$data['DateCreated']);
+        $model->dateModified = strtotime(self::$data['DateModified']);
         $model->isActive = self::$data['IsActive'];
         $model->name = self::$data['Name'];
         $model->imageURL = self::$data['ImageURL'];
