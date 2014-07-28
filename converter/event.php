@@ -23,6 +23,7 @@ class event {
         $model->dateModified = strtotime(self::$data['DateModified']);
         $model->startDate = strtotime(self::$data['StartDate']);
         $model->endDate = strtotime(self::$data['EndDate']);
+        $model->name = self::$data['HostName'];
         $model->name = self::$data['Name'];
         $model->imageURL = self::$data['ImageURL'];
         $model->websiteURL = self::$data['WebsiteURL'];

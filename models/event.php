@@ -15,6 +15,7 @@ class event {
     public $dateModified;
     public $startDate;
     public $endDate;
+    public $hostName;
     public $name;
     public $imageURL;
     public $websiteURL;
